@@ -1,0 +1,5 @@
+Consumer Key (API Key): 58VIUID8fe7VYVCaOLMgN2KgJ
+
+Consumer Secret (API Secret): 3Y3Tozs6VKqnx1POAc9juNozD4kjk2H82ivYztPvBJ6gLrrOPT
+
+Owner ID: 612210741
