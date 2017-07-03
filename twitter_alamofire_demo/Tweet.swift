@@ -30,6 +30,7 @@ class Tweet {
         formatter.dateStyle = .short
         formatter.timeStyle = .none
         createdAtString = formatter.string(from: date)
+        
     }
     
     
@@ -42,5 +43,31 @@ class Tweet {
         return tweets
     }
     
+}
+
+extension Date {
+    
+    func getAge() -> String {
+        
+        let interval = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: self, to: Date())
+        
+        if let day = interval.day, day > 6 {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "E MMM d HH:mm:ss Z y"
+            formatter.dateStyle = .short
+            formatter.timeStyle = .none
+            return formatter.string(from: self)
+        } else if let day = interval.day, day > 0 {
+            return "\(day)" + "d"
+        } else if let hour = interval.hour, hour > 0 {
+            return "\(hour)" + "h"
+        } else if let minute = interval.minute, minute > 0 {
+            return "\(minute)" + "m"
+        } else {
+            let second = interval.second
+            return "\(second ?? 0)" + "s"
+        }
+        
+    }
 }
 
