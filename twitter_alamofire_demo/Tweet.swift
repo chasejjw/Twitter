@@ -4,33 +4,32 @@ class Tweet {
     
     var id: Int64?
     var text: String?
-    var favoriteCount: Int?
+    var favoriteCount: Int = 0
     var favorited: Bool?
-    var retweetCount: Int?
+    var retweetCount: Int = 0
     var retweeted: Bool?
     var user: User?
-    var createdAtString: String
+    var age: String?
     
 
     init(dictionary: [String: Any]) {
         id = dictionary["id"] as? Int64
         text = dictionary["text"] as? String ?? ""
-        favoriteCount = dictionary["favorite_count"] as? Int
+        favoriteCount = (dictionary["favorite_count"] as? Int)!
         favorited = dictionary["favorited"] as? Bool
-        retweetCount = dictionary["retweet_count"] as? Int
+        retweetCount = (dictionary["retweet_count"] as? Int)!
         retweeted = dictionary["retweeted"] as? Bool
         
         let user = dictionary["user"] as! [String: Any]
         self.user = User(dictionary: user)
         
-        let createdAtOriginalString = dictionary["created_at"] as! String
+        let createdAt = dictionary["created_at"] as! String
         let formatter = DateFormatter()
         formatter.dateFormat = "E MMM d HH:mm:ss Z y"
-        let date = formatter.date(from: createdAtOriginalString)!
+        let date = formatter.date(from: createdAt)!
         formatter.dateStyle = .short
         formatter.timeStyle = .none
-        createdAtString = formatter.string(from: date)
-        
+        age = date.getAge()
     }
     
     

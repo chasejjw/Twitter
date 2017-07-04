@@ -1,12 +1,5 @@
-//
-//  TimelineViewController.swift
-//  twitter_alamofire_demo
-//
-//  Created by Charles Hieger on 6/18/17.
-//  Copyright © 2017 Charles Hieger. All rights reserved.
-//
-
 import UIKit
+import AlamofireImage
 
 class TimelineViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -41,6 +34,8 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath) as! TweetCell
         
         cell.tweet = tweets[indexPath.row]
+        
+        cell.profileImage.layer.cornerRadius = cell.profileImage.frame.size.width / 2
         
         return cell
     }
