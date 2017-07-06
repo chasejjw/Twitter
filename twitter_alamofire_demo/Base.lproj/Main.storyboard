@@ -54,7 +54,7 @@
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="37.331334332833585"/>
         </scene>
-        <!--Home Timeline-->
+        <!--Home-->
         <scene sceneID="5vf-Kh-7ye">
             <objects>
                 <viewController storyboardIdentifier="TimelineViewController" id="5YO-Vh-39k" customClass="TimelineViewController" customModule="twitter_alamofire_demo" customModuleProvider="target" sceneMemberID="viewController">
@@ -66,10 +66,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="110" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ctl-bI-Eag">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="716"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="110" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ctl-bI-Eag">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TweetCell" rowHeight="110" id="U1g-kw-izy" customClass="TweetCell" customModule="twitter_alamofire_demo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="110"/>
@@ -78,9 +79,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="109.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="how can mirrors be real if our eyes aren't real" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epC-Fs-Q5Z">
-                                                    <rect key="frame" x="71" y="29" width="296" height="41"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="how can mirrors be real if our eyes aren't real" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epC-Fs-Q5Z">
+                                                    <rect key="frame" x="71" y="29" width="296" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -164,7 +165,7 @@
                                                 <constraint firstItem="epC-Fs-Q5Z" firstAttribute="leading" secondItem="cdq-wK-qAk" secondAttribute="trailing" constant="8" id="zNS-4u-Mlt"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
                                             <outlet property="ageLabel" destination="QZT-HW-ehw" id="wB0-SW-wzj"/>
                                             <outlet property="favoritesLabel" destination="IKF-ys-Dgk" id="6bu-pK-JbU"/>
@@ -180,10 +181,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Home Timeline" id="9Zi-uW-GTS">
-                        <barButtonItem key="rightBarButtonItem" title="Logout" id="hz2-ji-ft0">
+                    <navigationItem key="navigationItem" title="Home" id="9Zi-uW-GTS">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="hz2-ji-ft0">
                             <connections>
                                 <action selector="didTapLogout:" destination="5YO-Vh-39k" id="fM7-h5-mq1"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="compose" id="DYS-ZV-Vs3">
+                            <connections>
+                                <segue destination="jgr-lK-sm0" kind="presentation" id="8zc-LO-o6w"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -194,6 +200,71 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZlF-i2-Ves" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1660" y="36.431784107946029"/>
+        </scene>
+        <!--Compose View Controller-->
+        <scene sceneID="C9c-Sm-n7b">
+            <objects>
+                <viewController id="jgr-lK-sm0" customClass="ComposeViewController" customModule="twitter_alamofire_demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HGs-L3-b9X"/>
+                        <viewControllerLayoutGuide type="bottom" id="0bU-lH-oKY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TO4-Ae-W5G">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8kf-MN-VKP">
+                                <rect key="frame" x="335" y="28" width="24" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="close-icon"/>
+                                <connections>
+                                    <action selector="onExit:" destination="jgr-lK-sm0" eventType="touchUpInside" id="0J8-0r-vs0"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eYA-Tu-DBq">
+                                <rect key="frame" x="16" y="28" width="32" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" text="What's happening?" translatesAutoresizingMaskIntoConstraints="NO" id="UXt-vN-RZg">
+                                <rect key="frame" x="16" y="68" width="343" height="129"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="twitter"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z2d-Tp-VDa">
+                                <rect key="frame" x="292" y="205" width="67" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Button" image="tweet_button"/>
+                                <connections>
+                                    <action selector="onTweet:" destination="jgr-lK-sm0" eventType="touchUpInside" id="9aR-Ns-USh"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="X4R-VT-9dm" appends="YES" id="Fjs-WT-NWg"/>
+                        </connections>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="profileImage" destination="eYA-Tu-DBq" id="I5B-PJ-yTK"/>
+                        <outlet property="textView" destination="UXt-vN-RZg" id="c5z-3g-HR9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a6B-9P-uSu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="X4R-VT-9dm">
+                    <connections>
+                        <action selector="onTap:" destination="jgr-lK-sm0" id="8I5-m8-UXF"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2416.8000000000002" y="36.431784107946029"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WXZ-z8-8LI">
@@ -216,8 +287,10 @@
     </scenes>
     <resources>
         <image name="TwitterLogoBlue" width="200" height="200"/>
+        <image name="close-icon" width="26" height="24"/>
         <image name="favor-icon" width="30" height="30"/>
         <image name="reply-icon" width="30" height="30"/>
         <image name="retweet-icon" width="30" height="30"/>
+        <image name="tweet_button" width="134" height="68"/>
     </resources>
 </document>

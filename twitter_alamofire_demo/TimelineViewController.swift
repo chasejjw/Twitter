@@ -1,7 +1,7 @@
 import UIKit
 import AlamofireImage
 
-class TimelineViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class TimelineViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ComposeViewControllerDelegate {
     
     var tweets: [Tweet] = []
     
@@ -13,6 +13,10 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.dataSource = self
         tableView.delegate = self
         
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
+        tableView.insertSubview(refreshControl, at: 0)
+        
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100
         
@@ -23,6 +27,34 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
             } else if let error = error {
                 print("Error getting home timeline: " + error.localizedDescription)
             }
+        }
+    }
+    
+    func did(post: Tweet) {
+        print("WE GOT HERE")
+        
+        APIManager.shared.getHomeTimeLine { (tweets, error) in
+            if let tweets = tweets {
+                self.tweets = tweets
+                self.tweets.append(post)
+                print("WE APPENDED")
+                self.tableView.reloadData()
+            } else if let error = error {
+                print("Error refreshing home timeline: " + error.localizedDescription)
+            }
+        }
+    }
+    
+    
+    func refreshControlAction(_ refreshControl: UIRefreshControl) {
+        APIManager.shared.getHomeTimeLine { (tweets, error) in
+            if let tweets = tweets {
+                self.tweets = tweets
+                self.tableView.reloadData()
+            } else if let error = error {
+                print("Error refreshing home timeline: " + error.localizedDescription)
+            }
+            refreshControl.endRefreshing()
         }
     }
     
@@ -53,16 +85,10 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
     @IBAction func didTapLogout(_ sender: Any) {
         APIManager.shared.logout()
     }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
+
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+        let vc = segue.destination as! ComposeViewController
+        vc.delegate = self as? ComposeViewControllerDelegate
+    }
     
 }
