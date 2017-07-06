@@ -88,7 +88,7 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
 
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as! ComposeViewController
-        vc.delegate = self as? ComposeViewControllerDelegate
+        vc.delegate = self as ComposeViewControllerDelegate
     }
     
 }
