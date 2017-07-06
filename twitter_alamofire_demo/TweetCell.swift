@@ -24,13 +24,28 @@ class TweetCell: UITableViewCell {
             tweetTextLabel.text = tweet.text
             profileImage.af_setImage(withURL: URL(string: (tweet.user?.profileImageURL)!)!)
             nameLabel.text = tweet.user?.name
-            screenNameLabel.text = tweet.user?.screenName
+            screenNameLabel.text = "@" + (tweet.user?.screenName)!
             ageLabel.text = tweet.age
             let favorites = tweet.favoriteCount
-            favoritesLabel.text = "\(favorites)"
+            favoritesLabel.text = shortenCount(count: favorites)
             let retweets = tweet.retweetCount
-            retweetsLabel.text = "\(retweets)"
+            retweetsLabel.text = shortenCount(count: retweets)
         }
+    }
+    
+    func shortenCount(count: Int) -> String {
+        if count > 999 {
+            let shortened = Double(count)/1000.00
+            let rounded = round(10.0 * shortened) / 10.0
+            let shortened_string = "\(rounded)"
+            if shortened_string.range(of:".0") != nil {
+                let one_less = String(shortened_string.characters.dropLast())
+                let two_less = String(one_less.characters.dropLast())
+                return two_less + "K"
+            }
+            return "\(rounded)" + "K"
+        }
+        return "\(count)"
     }
     
     override func awakeFromNib() {
