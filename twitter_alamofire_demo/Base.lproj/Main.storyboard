@@ -273,25 +273,45 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" text="What's happening?" translatesAutoresizingMaskIntoConstraints="NO" id="UXt-vN-RZg">
-                                <rect key="frame" x="16" y="68" width="343" height="129"/>
+                                <rect key="frame" x="16" y="68" width="343" height="281"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="twitter"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="yes" spellCheckingType="no" keyboardType="twitter"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z2d-Tp-VDa">
-                                <rect key="frame" x="292" y="205" width="67" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z2d-Tp-VDa">
+                                <rect key="frame" x="295" y="366" width="67" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="wLe-6v-wWE"/>
+                                    <constraint firstAttribute="width" constant="67" id="xXI-VB-DOs"/>
+                                </constraints>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Button" image="tweet_button"/>
                                 <connections>
                                     <action selector="onTweet:" destination="jgr-lK-sm0" eventType="touchUpInside" id="9aR-Ns-USh"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="140" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x04-6I-hIZ">
+                                <rect key="frame" x="252" y="373" width="29" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.40938225388526917" green="0.46550741791725159" blue="0.52164238691329956" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T5G-os-0xe">
+                                <rect key="frame" x="0.0" y="357" width="375" height="0.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.74192929267883301" green="0.77590721845626831" blue="0.80395305156707764" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="0bU-lH-oKY" firstAttribute="top" secondItem="Z2d-Tp-VDa" secondAttribute="bottom" constant="267" id="JVj-qX-NlQ"/>
+                            <constraint firstItem="Z2d-Tp-VDa" firstAttribute="centerY" secondItem="x04-6I-hIZ" secondAttribute="centerY" id="X4Z-tZ-DaW"/>
+                            <constraint firstAttribute="trailing" secondItem="Z2d-Tp-VDa" secondAttribute="trailing" constant="13" id="beZ-Od-HW2"/>
+                            <constraint firstItem="Z2d-Tp-VDa" firstAttribute="leading" secondItem="x04-6I-hIZ" secondAttribute="trailing" constant="14" id="crm-Gm-Bfu"/>
+                        </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="X4R-VT-9dm" appends="YES" id="Fjs-WT-NWg"/>
                         </connections>
@@ -300,6 +320,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="countLabel" destination="x04-6I-hIZ" id="ANb-ql-ACA"/>
                         <outlet property="profileImage" destination="eYA-Tu-DBq" id="I5B-PJ-yTK"/>
                         <outlet property="textView" destination="UXt-vN-RZg" id="c5z-3g-HR9"/>
                     </connections>

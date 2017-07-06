@@ -14,6 +14,7 @@ protocol ComposeViewControllerDelegate: class {
 
 class ComposeViewController: UIViewController, UITextViewDelegate {
 
+    @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var textView: UITextView!
     
@@ -24,6 +25,13 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
         textView.delegate = self
         self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 2
         self.profileImage.af_setImage(withURL: URL(string: (User.current!.profileImageURL))!)
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
+        let numberOfChars = newText.characters.count
+        countLabel.text = "\(140 - newText.characters.count)"
+        return numberOfChars < 140
     }
 
     override func didReceiveMemoryWarning() {
