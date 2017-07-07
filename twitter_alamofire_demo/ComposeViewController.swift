@@ -25,6 +25,7 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
         textView.delegate = self
         self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 2
         self.profileImage.af_setImage(withURL: URL(string: (User.current!.profileImageURL))!)
+        textView.becomeFirstResponder()
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
