@@ -12,6 +12,7 @@ target 'twitter_alamofire_demo' do
   pod 'Prephirences'
   pod 'KeychainAccess'
   pod 'AlamofireImage', '~> 3.1'
+  pod 'SideMenu', '~> 2.3'
 
   target 'twitter_alamofire_demoTests' do
     inherit! :search_paths

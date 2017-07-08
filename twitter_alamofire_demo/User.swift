@@ -8,6 +8,8 @@ class User {
     var profileBannerURL: String = ""
     var profileImageURL: String = ""
     var description: String = ""
+    var numFollowing: Int = 0
+    var numFollowers: Int = 0
     private static var _current: User?
     
     
@@ -42,5 +44,7 @@ class User {
         profileBannerURL = dictionary["profile_banner_url"] as? String ?? ""
         profileImageURL = dictionary["profile_image_url_https"] as? String ?? ""
         description = dictionary["description"] as? String ?? ""
+        numFollowing = dictionary["friends_count"] as! Int
+        numFollowers = dictionary["followers_count"] as! Int
     }
 }
