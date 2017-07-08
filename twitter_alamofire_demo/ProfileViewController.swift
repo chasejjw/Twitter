@@ -47,6 +47,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         whiteBackgroundView.layer.cornerRadius = whiteBackgroundView.frame.size.width / 2
         profileView.layer.cornerRadius = profileView.frame.size.width / 2
         grayView.layer.cornerRadius = grayView.frame.size.width / 2
+        bannerView.contentMode = .scaleAspectFill
+
 
         profileView.af_setImage(withURL: URL(string: (User.current?.profileImageURL)!)!)
         bannerView.af_setImage(withURL: URL(string: (User.current?.profileBannerURL)!)!)
