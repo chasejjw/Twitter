@@ -37,20 +37,21 @@ The following **optional** features are implemented:
 - [X] Profile view should include that user's timeline
 - [ ] Pulling down the profile page should blur and resize the header image.
 
-The following **additional** features are implemented:
-
-- [ ] List anything else that you can get done to improve the app functionality!
-
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1.
-2.
+1.  How can we do all the neat animations Twitter does in the profile view?
+2.  
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://i.imgur.com/NsRSVVH.gif' title='1' width='' alt='4' />
+
+<img src='http://i.imgur.com/e6DVDto.gif' title='2' width='' alt='4' />
+
+<img src='http://i.imgur.com/ElZvyoO.gif' title='3' width='' alt='6' />
+
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
