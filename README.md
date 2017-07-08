@@ -40,7 +40,7 @@ The following **optional** features are implemented:
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
 1.  How can we do all the neat animations Twitter does in the profile view?
-2.  
+2.  How can we implement the burger view with similar style to twitter's?
 
 ## Video Walkthrough
 
@@ -59,7 +59,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+Had trouble with unfavoriting and unretweeting.
 
 ## Credits
 
